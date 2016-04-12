@@ -21,7 +21,7 @@
 		<div class="jumbotron">
 			<h2 class="punch">ePsy har bytt namn till <a href="http://www.kaddio.com">Kaddio</a></h2>
 			
-			<h3>Vi har därför bytt adress från epsy.io till kaddio.com, du kommer strax dit...</h3>
+			<h3>Vi har därför bytt adress från epsy.io till kaddio.com, du kommer dit om <span id="timer">15</span> sekunder</h3>
 			
 			<a href="http://www.kaddio.com">Gå till Kaddio nu</a>
 		</div>
@@ -31,9 +31,22 @@
 </body>
 
 	<script>
+	
+		var timer = 15000;
+		
 		setTimeout(function(){
 			window.location = 'http://www.kaddio.com';
 		}, 15000);
+		
+		setInterval(function(){
+			if(timer < 100){
+				window.location = 'http://www.kaddio.com';
+			}
+			
+			timer = timer - 1000;
+			
+			document.getElementById('timer').innerHTML = timer;
+		}, 1000);
 	</script>
 
 	<script>
